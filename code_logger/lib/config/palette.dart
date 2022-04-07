@@ -33,6 +33,6 @@ class FontStyle {
   );
   static const TextStyle helperTextStyle = TextStyle(
     color: Palette.subFontColor,
-    fontSize: 20.0,
+    fontSize: 18.0,
   );
 }

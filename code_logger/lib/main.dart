@@ -75,7 +75,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         centerTitle: false,
         titleSpacing: 35.0,
         backgroundColor: Palette.backgroundColor,
-        actions: [Text('text')],
+        shadowColor: Colors.transparent,
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [Center(child: _appBarTitle[_selectedIndex])],

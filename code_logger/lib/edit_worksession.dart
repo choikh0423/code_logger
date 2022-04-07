@@ -13,6 +13,7 @@ class _EditSessionState extends State<EditSession> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Palette.backgroundColor,
         body: Container(
           child: Padding(
             padding: const EdgeInsets.all(8.0),

@@ -10,39 +10,50 @@ class WorkSession extends StatefulWidget {
 }
 
 class _WorkSessionState extends State<WorkSession> {
-  TextEditingController controller1 = TextEditingController();
-  TextEditingController controller2 = TextEditingController();
+  TextEditingController _textEditingController = TextEditingController();
 
   int _currentRoute = 0;
+
   @override
   Widget build(BuildContext context) {
     return Navigator(
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-          settings: settings,
-          builder: (BuildContext context) {
-            return Scaffold(
-              body: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(fixedSize: Size(20, 20)),
-                    child: Text("hs"),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return EditSession();
-                          },
-                        ),
-                      );
-                    },
-                  ),
+            settings: settings,
+            builder: (BuildContext context) {
+              return Scaffold(
+                backgroundColor: Palette.backgroundColor,
+                body: Container(
+                  child: ListView(
+                      children: List.generate(50, (index) {
+                    return Card(
+                      shadowColor: Colors.white,
+                      child: ListTile(
+                          contentPadding: EdgeInsets.only(
+                              bottom: 10, left: 30, right: 30, top: 0),
+                          tileColor: Palette.backgroundColor,
+                          title: Text('Worksession #${index + 1}',
+                              style: FontStyle.heading3TextStyle),
+                          subtitle: Text('Description of this ',
+                              style: FontStyle.helperTextStyle),
+                          enabled: true,
+                          onTap: () {
+                            if (_currentRoute != index) {
+                              _textEditingController = TextEditingController();
+                            }
+                            _currentRoute = index;
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                return EditSession();
+                              }),
+                            );
+                          }),
+                    );
+                  })),
                 ),
-              ),
-            );
-          },
-        );
+              );
+            });
       },
     );
   }
