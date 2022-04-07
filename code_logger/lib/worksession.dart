@@ -27,7 +27,7 @@ class _WorkSessionState extends State<WorkSession> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(fixedSize: Size(20, 20)),
-                    child: Text("hiiiinsjkassnw"),
+                    child: Text("hs"),
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
