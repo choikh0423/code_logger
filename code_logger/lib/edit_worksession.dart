@@ -17,7 +17,7 @@ class _EditSessionState extends State<EditSession> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-              child: Text("hello"),
+              child: Text("back"),
               onPressed: () {
                 Navigator.pop(context);
               },
