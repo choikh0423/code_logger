@@ -13,11 +13,16 @@ class _EditSessionState extends State<EditSession> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: ElevatedButton(
-          child: Text("pop"),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        body: Container(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              child: Text("hello"),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
         ),
       ),
     );

@@ -58,7 +58,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   find_body() {
     if (_selectedIndex == 0) {
-      return worksession();
+      return WorkSession();
     } else if (_selectedIndex == 1) {
       return stats();
     } else if (_selectedIndex == 2) {
@@ -84,7 +84,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       backgroundColor: Palette.backgroundColor,
       body: IndexedStack(
         index: _selectedIndex,
-        children: [worksession(), stats(), wiki(), notes()],
+        children: [WorkSession(), stats(), wiki(), notes()],
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
