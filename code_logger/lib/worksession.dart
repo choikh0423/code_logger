@@ -15,19 +15,14 @@ class _worksessionState extends State<worksession> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: [
-          TextField(
-            controller: controller1,
-            decoration: InputDecoration(labelText: 'Enter "dice"'),
-            keyboardType: TextInputType.emailAddress,
-          ),
-          TextField(
-            controller: controller2,
-            decoration: InputDecoration(labelText: 'Enter "dice"'),
-            keyboardType: TextInputType.emailAddress,
-          ),
-        ],
+      child: ElevatedButton(
+        child: Text("edit or add session"),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => EditSession()),
+          );
+        },
       ),
     );
   }
