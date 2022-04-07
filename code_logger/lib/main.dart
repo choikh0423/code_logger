@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'config/palette.dart';
+import 'worksession.dart';
+import 'stats.dart';
+import 'wiki.dart';
+import 'notes.dart';
 
 void main() => runApp(const MyApp());
 
@@ -27,28 +31,22 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _appBarTitle = <Widget>[
     Text(
-      'Calendar',
-      style: optionStyle,
+      'Work Sessions',
+      style: FontStyle.heading1TextStyle,
     ),
     Text(
       'Statistics',
-      style: optionStyle,
-    ),
-    Text(
-      'Add',
-      style: optionStyle,
+      style: FontStyle.heading1TextStyle,
     ),
     Text(
       'myWiki',
-      style: optionStyle,
+      style: FontStyle.heading1TextStyle,
     ),
     Text(
       'Notes',
-      style: optionStyle,
+      style: FontStyle.heading1TextStyle,
     ),
   ];
 
@@ -58,11 +56,33 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     });
   }
 
+  find_body() {
+    if (_selectedIndex == 0) {
+      return worksession();
+    } else if (_selectedIndex == 1) {
+      return stats();
+    } else if (_selectedIndex == 2) {
+      return wiki();
+    } else if (_selectedIndex == 3) {
+      return notes();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: false,
+        titleSpacing: 35.0,
+        backgroundColor: Palette.backgroundColor,
+        actions: [Text('text')],
+        title: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [Center(child: _appBarTitle[_selectedIndex])],
+        ),
+      ),
       backgroundColor: Palette.backgroundColor,
-      body: Container(),
+      body: find_body(),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           border: Border(
@@ -79,7 +99,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           items: <BottomNavigationBarItem>[
             imageToIcon('calendar'),
             imageToIcon('stats'),
-            imageToIcon('add'),
             imageToIcon('mywiki'),
             imageToIcon('notes'),
           ],
