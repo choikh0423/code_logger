@@ -15,9 +15,19 @@ class _worksessionState extends State<worksession> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: ElevatedButton(
-        child: Text("edit or add worksession"),
-        onPressed: () {},
+      child: Column(
+        children: [
+          TextField(
+            controller: controller1,
+            decoration: InputDecoration(labelText: 'Enter "dice"'),
+            keyboardType: TextInputType.emailAddress,
+          ),
+          TextField(
+            controller: controller2,
+            decoration: InputDecoration(labelText: 'Enter "dice"'),
+            keyboardType: TextInputType.emailAddress,
+          ),
+        ],
       ),
     );
   }

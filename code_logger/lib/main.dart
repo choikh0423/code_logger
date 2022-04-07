@@ -82,7 +82,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ),
       backgroundColor: Palette.backgroundColor,
-      body: find_body(),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: [worksession(), stats(), wiki(), notes()],
+      ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           border: Border(
